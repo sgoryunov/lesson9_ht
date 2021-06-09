@@ -1,2 +1,25 @@
 ---
 # tasks file for build
+- name: Ensure that git and Maven are installed
+  apt: 
+    name: {{ item }}
+    state: installed
+  with_items:
+  - git
+  - maven
+
+- name: Ensure project repository is cloned
+  git:
+    repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+    dest: /tmp/boxfuse-sample-java-war-hello
+
+- name: Build war
+  shell: mvn -f /tmp/boxfuse-sample-java-war-hello package
+  
+- name: Ensure build artifact is copied to master
+  fetch:
+    src: /tmp/boxfuse-sample-java-war-hello/target/hello-1.0.war
+    dest: hello-1.0.war
+    flat: yes
+
+    
