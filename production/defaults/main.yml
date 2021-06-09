@@ -1,2 +1,3 @@
 ---
 # defaults file for production
+dest_folder: /var/lib/tomcat9/webapps/
