@@ -1,4 +1,10 @@
 ---
+- name: Ensure shared variable is defined
+  hosts: all
+  vars:
+    artifact_name: hello-1.0.war
+
+    
 - name: Build server configuration
   hosts: build
   become: yes

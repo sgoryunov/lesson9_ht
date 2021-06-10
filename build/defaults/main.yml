@@ -1,6 +1,5 @@
 ---
 # defaults file for build
-artifact_name: hello-1.0.war
 git_url: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 build_folder: /tmp/boxfuse-sample-java-war-hello
 dest_folder: /production/files
