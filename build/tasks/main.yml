@@ -9,14 +9,14 @@
 
 - name: Ensure project repository is cloned
   git:
-    repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-    dest: /tmp/boxfuse-sample-java-war-hello
+    repo: {{git_url}}
+    dest: {{build_folder}}
 
 - name: Build war
-  shell: mvn -f /tmp/boxfuse-sample-java-war-hello package
+  shell: mvn -f {{build_folder}} package
 
 - name: Ensure build artifact is copied to master
   fetch:
-    src: /tmp/boxfuse-sample-java-war-hello/target/hello-1.0.war
-    dest: ./production/files/hello-1.0.war
+    src: {{build_folder}}/target/{{artifact_name}}
+    dest: {{dest_folder}}/{{artifact_name}}
     flat: yes

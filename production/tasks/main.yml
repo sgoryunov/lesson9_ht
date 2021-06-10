@@ -6,6 +6,6 @@
     state: installed
 
 - name: Ensure that artifact copied to prod server
-  copy: src=hello-1.0.war dest={{ dest_folder }}/hello-1.0.war
+  copy: src=*.war dest={{ dest_folder }}/
   notify:
   - restart tomcat
